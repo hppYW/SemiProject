@@ -1,0 +1,172 @@
+.header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+  max-width: 1920px;
+  height: 70px;
+}
+
+.header-container { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* 로고 스타일 */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+.logo-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.logo-circle-black {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+}
+
+.logo-circle-blue1 {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: conic-gradient(from 0deg, #6C90FE 0deg 90deg, transparent 90deg);
+  border-radius: 50%;
+  bottom: 0px;
+  right: 0px;
+}
+
+.logo-circle-blue2 {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: conic-gradient(from 0deg, #6C90FE 0deg 90deg, transparent 90deg);
+  border-radius: 50%;
+  rotate: 180deg;
+  bottom: 0;
+  right: 0;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+}
+
+/* 검색바 스타일 */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 250px;
+  margin: 0 3rem;
+  margin-left: 200px;
+  margin-top: 15px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.7rem 3rem 0.7rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.search-input:focus {
+  border-color: #6C90FE;
+}
+
+.search-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* 네비게이션 메뉴 */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  z-index: 10;
+  max-width: 900px;
+  margin-right: 130px;
+  margin-top: 15px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-item:hover {
+  color: #6C90FE;
+}
+
+.login-btn {
+  color: black;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 100px;
+  background: none;
+}
+
+.login-btn:hover {
+  color: #6C90FE;
+}
+
+/* 우측 장식 */
+.header-decoration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 40px;
+  width: 200px;
+  height: 70px;
+  overflow: hidden;
+  
+}
+
+.decoration-black {
+  position: absolute;
+  right: -100px;
+  top: -20px;
+  width: 200px;
+  height: 200px;
+  background: conic-gradient(from 0deg, #000000 0deg 90deg, transparent 90deg);
+  border-radius: 50%;
+  rotate: -90deg;
+}
+
+.decoration-blue{
+  position: absolute;
+  right: 50px;
+  margin-top: 40px;
+  width: 70px;
+  height: 40px;
+  background: #6C90FE;
+  border-radius: 100px 100px 0 0;
+  
+}
