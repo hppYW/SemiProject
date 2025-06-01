@@ -1,0 +1,207 @@
+.Body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.earth-container {
+  width: 1000px;
+  height: 100vh;
+  display: flex;
+  margin-left: 200px;
+  margin-top: 100px;
+  background: transparent;
+}
+
+.earth-svg {
+  width: 500px; /* 384px */
+  height: 500px; /* 384px */
+  animation: rotate 20s linear infinite;
+  
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* 호버 효과 (선택사항) */
+.earth-svg:hover {
+  animation-play-state: paused;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .earth-svg {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .earth-svg {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+.right-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    height: 650px;
+    left: 800px;
+    top: 150px;
+}
+
+.ment1{
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1e293b;
+    margin: 0;
+    width: 600px;
+    top: -60px;
+    left: 100px;
+    line-height: 1.2;
+}
+
+.ment2{
+    position: absolute;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: #64748b;
+    margin: 0;
+    top: 20px;
+    left: 100px;
+    line-height: 1.4;
+}
+
+.pin-svg{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 450px;
+    left: 700px;
+    animation: bounce 2s ease-in-out infinite;
+    z-index: 10;
+}
+
+.people-svg{
+    position: absolute;
+    width: 200px;
+    height: 160px;
+    left: 500px;
+    top: -90px;
+    animation: wiggle 3s ease-in-out infinite;
+}
+
+.btn-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 400px;
+    height: 200px;
+    top: 320px;
+    left: 100px;
+}
+
+.car-svg{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 160px;
+    top: -80px;
+    animation: drive 4s ease-in-out infinite;
+}
+
+.find-btn{
+    display: flex;
+    position: relative;
+    background: #1e40af;
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+    width: fit-content;
+    left: 100px;
+}
+
+.find-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4);
+}
+
+.signup-text{
+    display: flex;
+    position: relative;
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.4;
+    left: 40px;
+}
+
+.signup-text a {
+    color: #2563eb;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+    color: #1d4ed8;
+}
+
+/* 애니메이션 */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(3deg);
+  }
+  75% {
+    transform: rotate(-3deg);
+  }
+}
+
+@keyframes drive {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateX(5px) rotate(2deg);
+  }
+  50% {
+    transform: translateX(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-5px) rotate(-2deg);
+  }
+}
