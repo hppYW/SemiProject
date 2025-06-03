@@ -1,6 +1,7 @@
 import './Header.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const Header: React.FC = () => {
   return (
@@ -30,9 +31,15 @@ const Header: React.FC = () => {
         
         {/* 네비게이션 메뉴 */}
         <nav className="nav-menu">
-            <a href="#" className="nav-item">여행일기</a>
-            <a href="#" className="nav-item">여행계획</a>
-            <button className="login-btn">로그인</button>
+            <div className='item-menu'>
+                <a href="#" className="nav-item">여행일기</a>
+                <a href="#" className="nav-item">여행계획</a>
+            </div>
+            <div className='log-menu'>
+                <Link to="/login" className="login">로그인</Link>
+                <a href='#' className="signup">회원가입</a>
+            </div>
+            
         </nav>
 
         {/* 우측 장식 */}

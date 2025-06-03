@@ -104,7 +104,7 @@
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 0rem;
   z-index: 10;
   max-width: 900px;
   margin-right: 130px;
@@ -122,19 +122,36 @@
   color: #6C90FE;
 }
 
-.login-btn {
-  color: black;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 500;
-  margin-left: 100px;
-  background: none;
+.item-menu{
+  display: flex;
+  position: relative;
+  margin-right: 150px;
+  gap: 60px;
 }
 
-.login-btn:hover {
+
+.login {
+  color: black;  
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 50px;
+}
+
+.login:hover {
+  color: #6d6d6d;
+}
+
+.signup{
   color: #6C90FE;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px;
+}
+
+.signup:hover{
+  color: #2a36a9;
 }
 
 /* 우측 장식 */
