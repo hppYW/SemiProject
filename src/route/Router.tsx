@@ -4,7 +4,6 @@ import Body from '../components/Body'
 import Login from '../Log/Login'
 import Signup from '../Log/Signup'
 
-
 // Header가 있는 레이아웃
 const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
@@ -15,7 +14,7 @@ const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
   )
 }
 
-const Router: React.FC = () => {
+const AppRouter: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -30,4 +29,4 @@ const Router: React.FC = () => {
   )
 }
 
-export default Router
+export default AppRouter

@@ -1,0 +1,110 @@
+.signup-container{
+    background: rgba(64, 64, 64, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.15);
+}
+
+.signup-title{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.signup-text{
+    color: white;
+    font-size: 30px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-box-signup{
+    margin: 20px 0;
+    position: relative;
+}
+
+.input-box-signup input{
+    width: 100%;
+    background: #C4D9FF;
+    border: none;
+    padding: 12px 12px 12px 45px;
+    border-radius: 99px;
+    outline: 3px solid transparent;
+    transition: 0.3s;
+    font-size: 12px;
+    color: #727070;
+    font-weight: 400;
+}
+
+.input-box-signup input::placeholder{
+    color: #727070;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.input-box-signup input:focus{
+    outline: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+
+.input-box-signup input::-ms-reveal{
+    filter: invert(100%);
+}
+
+.input-box-signup i{
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 15px;
+    color: #727070;
+}
+
+.signup-btn{
+    width: 100%;
+    padding: 10px 0;
+    background: #6C90FE;
+    border: none;
+    border-radius: 99px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signup-btn:hover{
+    background: #3e4fed;
+}
+
+.signup-to-login {
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.signup-to-login a{
+    color: #1d324e;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-to-login a:hover{
+    text-decoration: underline;
+}
+
+.pwd-rule{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 5px;
+    font-size: 12px;
+    color: #000000;
+}

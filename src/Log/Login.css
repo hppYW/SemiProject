@@ -1,17 +1,53 @@
-.background-img{
+body{
     background-image: url(../assets/background.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
 }
 
 .login-container{
-
+    background: rgba(64, 64, 64, 0.15);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    color: white;
+    width: 400px;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.15);
 }
 
-.input-box{
+.logo-img{
+    display: flex;
+}
+
+.login-title{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-text {
+    color: white;
+    
+}
+
+.logo-name{
+    color: #000000;
+    margin-top: 35px;
+}
+
+.input-box-login{
     margin: 20px 0;
     position: relative;
 }
 
-.input-box input{
+.input-box-login input{
     width: 100%;
     background: #C4D9FF;
     border: none;
@@ -21,26 +57,26 @@
     transition: 0.3s;
     font-size: 12px;
     color: #727070;
-    font-weight: 600;
+    font-weight: 400;
 }
 
-.input-box input::placeholder{
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 15px;
-    font-weight: 600;
+.input-box-login input::placeholder{
+    color: #727070;
+    font-size: 12px;
+    font-weight: 500;
 }
 
-.input-box input:focus{
+.input-box-login input:focus{
     outline: 3px solid rgba(255, 255, 255, 0.3);
 }
 
-.input-box input::-ms-reveal{
+.input-box-login input::-ms-reveal{
     filter: invert(100%);
 }
 
-.input-box i{
+.input-box-login i{
     position: absolute;
-    left: 15px;
+    left: 25px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 15px;
@@ -50,12 +86,12 @@
 .forgot-pwd{
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: 20px 5px;
     font-size: 12px;
 }
 
 .forgot-pwd a{
-    color: #333333;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -80,17 +116,17 @@
     background: #3e4fed;
 }
 
-.register{
+.login-to-signup{
     margin-top: 15px;
     font-size: 12px;
 }
 
-.register a{
-    color: #6C90FE;
+.login-to-signup a{
+    color: #1d324e;
     text-decoration: none;
     font-weight: 500;
 }
 
-.register a:hover{
+.login-to-signup a:hover{
     text-decoration: underline;
 }
