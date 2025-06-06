@@ -34,7 +34,6 @@ body{
 
 .login-text {
     color: white;
-    
 }
 
 .logo-name{
@@ -121,12 +120,12 @@ body{
     font-size: 12px;
 }
 
-.login-to-signup a{
+.signup-link {
     color: #1d324e;
     text-decoration: none;
     font-weight: 500;
 }
 
-.login-to-signup a:hover{
+.signup-link:hover{
     text-decoration: underline;
 }

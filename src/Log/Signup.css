@@ -18,7 +18,7 @@
     gap: 10px;
 }
 
-.signup-text{
+.signup-text-log {
     color: white;
     font-size: 30px;
     left: 0;
@@ -91,13 +91,13 @@
     font-size: 12px;
 }
 
-.signup-to-login a{
+.login-link {
     color: #1d324e;
     text-decoration: none;
     font-weight: 500;
 }
 
-.signup-to-login a:hover{
+.login-link:hover{
     text-decoration: underline;
 }
 
@@ -107,4 +107,15 @@
     margin: 20px 5px;
     font-size: 12px;
     color: #000000;
+}
+
+.input-pwd-check.error {
+    border: 2px solid #ff4444;
+}
+
+.error-message {
+    color: #ff4444;
+    font-size: 0.8rem;
+    margin: 5px 0;
+    text-align: center;
 }

@@ -1,13 +1,12 @@
 import './App.css'
 import Router from './route/Router'
-import Header from './components/Header'
-import Body from './components/Body'
+import { AuthProvider } from './Auth/AuthContext';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <AuthProvider>
       <Router/>
-    </div>    
+    </AuthProvider>    
   )
 }
 
