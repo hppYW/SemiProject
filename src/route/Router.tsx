@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from '../components/Header'
 import Body from '../components/Body'
+import Body2 from '../components/Body2'
+import Traveldiary from '../components/TravelDiary'
 import Login from '../Log/Login'
 import Signup from '../Log/Signup'
 
@@ -19,7 +21,9 @@ const AppRouter: React.FC = () => {
     <BrowserRouter>
       <Routes>
         {/* Header가 있는 페이지들 */}
-        <Route path="/" element={<Layout><Body/></Layout>} />
+        <Route path="/" element={<Layout><Body/><Body2/></Layout>} />
+        <Route path="/traveldiary" element={<Layout><Traveldiary/></Layout>}/>
+        
         
         {/* Header가 없는 페이지들 */}
         <Route path="/login" element={<Login/>} />

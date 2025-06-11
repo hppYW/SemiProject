@@ -140,7 +140,7 @@ const Signup: React.FC = () => {
                         <p className='error-message'>비밀번호가 일치하지 않습니다.</p>
                     )}
                      <div className='input-box-signup'>
-                        <input type='password' name='nickname' placeholder='닉네임' className='input-nickname' value={formData.nickname}
+                        <input type='text' name='nickname' placeholder='닉네임' className='input-nickname' value={formData.nickname}
                         onChange={handleChange} required></input>
                      </div>
                      <button className='signup-btn' type='submit'>

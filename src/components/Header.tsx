@@ -48,7 +48,7 @@ const Header: React.FC = () => {
             {/* 네비게이션 메뉴 */}
             <nav className="nav-menu">
                 <div className='item-menu'>
-                    <a className="nav-item">여행일기</a>
+                    <a href="#" className="nav-item">여행일기</a>
                     <a href="#" className="nav-item">여행계획</a>
                 </div>
                 {/* 로그인 상태에 따라 다른 메뉴 표시 */}

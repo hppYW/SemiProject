@@ -1,0 +1,272 @@
+.Body2 {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+  min-height: 100vh;
+  padding: 40px 60px;
+}
+
+.body2-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  height: 100vh;
+}
+
+/* 오른쪽 상단 - Best 여행지 텍스트와 버튼들 */
+.right-part {
+  position: absolute;
+  top: 0;
+  right: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 800px;
+  padding: 20px 0;
+}
+
+.best-text {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.best-img {
+  width: 45px;
+  height: 45px;
+}
+
+.best-text h3 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.right-part > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.right-part button {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.right-part button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+}
+
+.to-traveldiary {
+  color: #888;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.to-traveldiary:hover {
+  color: #8b5cf6;
+}
+
+/* 왼쪽 이미지들 */
+.left-pictures {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  width: 500px;
+  height: 450px;
+}
+
+.left-pic1 {
+  width: 320px;
+  height: 620px;
+  object-fit: cover;
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 3;
+}
+
+.left-pic2 {
+  width: 340px;
+  height: 310px;
+  position: absolute;
+  bottom: -200px;
+  right: -100px;
+  z-index: 2;
+}
+
+.left-pic3 {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 90%;
+  right: -170px;
+  transform: translateY(-50%);
+  z-index: 4;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+}
+
+/* Best 여행지 카드들 영역 */
+.best-diary {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  width: 700px;
+  height: 320px;
+  /* 여기에 카드들이 들어갈 공간 */
+}
+
+/* 하단 - 가장 많이 채택된 여행지 */
+.most-adopted {
+  position: absolute;
+  bottom: 120px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.most-adopted > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.check-img {
+  width: 50px;
+  height: 50px;
+}
+
+.adopted-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.bottompic {
+  width: 350px;
+  height: auto;
+  margin-left: 1100px;
+  margin-top: 540px;
+  object-fit: contain;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1200px) {
+  .Body2 {
+    padding: 20px 30px;
+  }
+  
+  .body2-container {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .right-part,
+  .left-pictures,
+  .best-diary,
+  .most-adopted {
+    position: static;
+    width: 100%;
+    max-width: none;
+  }
+  
+  .left-pictures {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .left-pic1 {
+    width: 250px;
+    height: 320px;
+  }
+  
+  .left-pic2 {
+    width: 140px;
+    height: 90px;
+    bottom: 10px;
+    right: -70px;
+  }
+  
+  .left-pic3 {
+    width: 50px;
+    height: 50px;
+    right: -25px;
+  }
+  
+  .most-adopted {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .best-text h3 {
+    font-size: 1.8rem;
+  }
+  
+  .adopted-text {
+    font-size: 1.6rem;
+  }
+  
+  .bottompic {
+    width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Body2 {
+    padding: 20px;
+  }
+  
+  .right-part {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .right-part > div:last-child {
+    align-items: center;
+  }
+  
+  .best-text h3 {
+    font-size: 1.5rem;
+  }
+  
+  .adopted-text {
+    font-size: 1.4rem;
+  }
+  
+  .left-pic1 {
+    width: 200px;
+    height: 260px;
+  }
+  
+  .left-pic2 {
+    width: 120px;
+    height: 80px;
+  }
+  
+  .left-pic3 {
+    width: 40px;
+    height: 40px;
+  }
+}
