@@ -35,6 +35,10 @@
   height: 45px;
 }
 
+.write-diary{
+  text-decoration: none;
+}
+
 .best-text h3 {
   font-size: 2.2rem;
   font-weight: bold;
