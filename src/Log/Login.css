@@ -1,4 +1,4 @@
-body{
+.background-img{
     background-image: url(../assets/background.jpg);
     display: flex;
     justify-content: center;
