@@ -30,7 +30,7 @@ const Header: React.FC = () => {
                         <div className="logo-circle-black"></div>
                         <div className="logo-circle-blue2"></div>
                 </div>
-                <span className="logo-text">TravelDart</span>
+                <a href='/' className="logo-text">TravelDart</a>
             </div>
             
             {/* 검색바 */}
@@ -48,7 +48,7 @@ const Header: React.FC = () => {
             {/* 네비게이션 메뉴 */}
             <nav className="nav-menu">
                 <div className='item-menu'>
-                    <a href="#" className="nav-item">여행일기</a>
+                    <Link to="/alldiaries" className="nav-item">여행일기</Link>
                     <a href="#" className="nav-item">여행계획</a>
                 </div>
                 {/* 로그인 상태에 따라 다른 메뉴 표시 */}
@@ -74,6 +74,9 @@ const Header: React.FC = () => {
                                     <span className="user-name">{user?.nickname}님</span>
                                 </div>
                                 <div className="dropdown-divider"></div>
+                                <div>
+                                    <Link to="/diaries" className='my-diaries'>내 다이어리</Link>
+                                </div>
                                 <button 
                                     className="dropdown-item logout-item"
                                     onClick={handleLogout}

@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../Auth/AuthContext';
 import axios from 'axios';
 import diaryimg from '../assets/notebook.svg'
 import underimg from '../assets/post-img.svg'
@@ -6,6 +8,9 @@ import photo from '../assets/Group2.svg'
 import './TravelDiary.css';
 
 const TravelDiary: React.FC = () => {
+    const navigate = useNavigate();
+    const { user, isLoggedIn } = useAuth();
+
     const [selectedCountry, setSelectedCountry] = useState('');
     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
     const [expense, setExpense] = useState('');
@@ -13,6 +18,14 @@ const TravelDiary: React.FC = () => {
     const [title, setTitle] = useState('');
     const [contents, setContents] = useState(['', '', '']); // 3개의 텍스트 영역
     const [photos, setPhotos] = useState<File[]>([]); // 업로드된 사진들
+
+    // 로그인 상태 확인
+    useEffect(() => {
+        if (!isLoggedIn) {
+            alert('로그인이 필요합니다.');
+            navigate('/login');
+        }
+    }, [isLoggedIn, navigate]);
 
     // 달력 관련 함수들
     const getDaysInMonth = (date: Date) => {
@@ -55,6 +68,13 @@ const TravelDiary: React.FC = () => {
         setContents(newContents);
     };
 
+    const formatDateForBackend = (date: Date) => {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    };
+
     // 사진 업로드 핸들러
     const handlePhotoUpload = (index: number, file: File | null) => {
         const newPhotos = [...photos];
@@ -78,9 +98,8 @@ const TravelDiary: React.FC = () => {
             formData.append('title', title); // title 필드 - 제목만
             formData.append('country', selectedCountry); // country 필드
             formData.append('expense', expense); // expense 필드
-            formData.append('travel_date', selectedDate.toISOString().split('T')[0]); // travel_date 필드 (YYYY-MM-DD)
-            formData.append('user_id', '1'); // user_id - 실제로는 로그인된 사용자 ID
-            formData.append('nickname', 'testUser'); // nickname - 실제로는 로그인된 사용자 닉네임
+            formData.append('travelDate', formatDateForBackend(selectedDate)); // travel_date 필드 (YYYY-MM-DD)
+            formData.append('nickname', user?.nickname  || 'test'); // nickname 
             
             // 3개 텍스트 내용을 각각 따로 전송
             formData.append('content1', contents[0] || ''); // 첫 번째 텍스트
@@ -94,7 +113,7 @@ const TravelDiary: React.FC = () => {
                 }
             });
 
-            const response = await axios.post('http://localhost:8090/api/diary/save', formData, {
+            const response = await axios.post('http://localhost:8090/api/diaries', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -125,6 +144,17 @@ const TravelDiary: React.FC = () => {
             }
         }
     };
+
+    // 로그인하지 않았을 때
+    if (!isLoggedIn) {
+        return (
+            <div className='travel-diary-body'>
+                <div style={{ textAlign: 'center', color: 'white', fontSize: '18px' }}>
+                    접근 권한이 없습니다.
+                </div>
+            </div>
+        );
+    }
 
 
     return (

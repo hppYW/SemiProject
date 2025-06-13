@@ -3,6 +3,9 @@ import Header from '../components/Header'
 import Body from '../components/Body'
 import Body2 from '../components/Body2'
 import Traveldiary from '../components/TravelDiary'
+import DiaryList from '../components/DiaryList'
+import AllDiaries from '../components/AllDiaries'
+import DiaryDetail from '../components/DiaryDetail'
 import Login from '../Log/Login'
 import Signup from '../Log/Signup'
 
@@ -23,6 +26,9 @@ const AppRouter: React.FC = () => {
         {/* Header가 있는 페이지들 */}
         <Route path="/" element={<Layout><Body/><Body2/></Layout>} />
         <Route path="/traveldiary" element={<Layout><Traveldiary/></Layout>}/>
+        <Route path="/diaries" element={<Layout><DiaryList /></Layout>} />
+        <Route path="/alldiaries" element={<Layout><AllDiaries/></Layout>}/>
+        <Route path="/diaries/:id" element={<Layout><DiaryDetail /></Layout>} />
         
         
         {/* Header가 없는 페이지들 */}
