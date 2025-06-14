@@ -95,30 +95,63 @@
     font-size: 18px;
 }
 
-/* 사진들 */
 .diary-photos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    margin-bottom: 40px;
+    margin: 30px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 12px;
 }
 
 .photo-container {
-    border-radius: 15px;
+    position: relative;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .photo-container:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.photo-container img {
+.diary-photo {
     width: 100%;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
-    display: block;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.diary-photo:hover {
+    transform: scale(1.02);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .diary-photos {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .diary-photo {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .diary-photos {
+        padding: 10px;
+    }
+    
+    .diary-photo {
+        height: 200px;
+    }
 }
 
 /* 내용 */

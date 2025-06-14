@@ -50,7 +50,7 @@ const DiaryDetail: React.FC = () => {
 
     const fetchDiary = async () => {
         try {
-            const response = await axios.get(`http://localhost:8090/api/diaries/${id}/comments`);
+            const response = await axios.get(`http://localhost:8090/api/diaries/${id}`);
             setDiary(response.data);
         } catch (error) {
             console.error('다이어리 조회 실패:', error);
@@ -112,17 +112,30 @@ const DiaryDetail: React.FC = () => {
     };
 
     const handleDeleteComment = async (commentId: number) => {
+        console.log('삭제 시도 - commentId:', commentId, typeof commentId); // 추가
+    
         if (!window.confirm('댓글을 삭제하시겠습니까?')) return;
 
         try {
-            await axios.delete(`http://localhost:8090/api/comments/${commentId}`);
+            const url = `http://localhost:8090/api/comments/${commentId}`;
+            console.log('삭제 URL:', url); // 추가
+            
+            await axios.delete(url);
             console.log('댓글 삭제 성공');
             
-            // 댓글 목록 즉시 새로고침
             await fetchComments();
             
         } catch (error) {
             console.error('댓글 삭제 실패:', error);
+            // axios 에러인지 확인
+            if (axios.isAxiosError(error)) {
+                console.log('HTTP 상태:', error.response?.status);
+                console.log('에러 메시지:', error.response?.data);
+            } else if (error instanceof Error) {
+                console.log('일반 에러:', error.message);
+            } else {
+                console.log('알 수 없는 에러:', error);
+            }
             alert('댓글 삭제에 실패했습니다.');
         }
     };
@@ -146,28 +159,50 @@ const DiaryDetail: React.FC = () => {
     };
 
     const renderPhotos = () => {
-        const photos = [diary?.photo1Url, diary?.photo2Url, diary?.photo3Url].filter(Boolean);
-        
+        console.log('=== renderPhotos 함수 호출됨 ===');
+        console.log('diary 객체:', diary);
+        console.log('photo1Url:', diary?.photo1Url);
+        console.log('photo2Url:', diary?.photo2Url);
+        console.log('photo3Url:', diary?.photo3Url);
+
+        const photos = [diary?.photo1Url, diary?.photo2Url, diary?.photo3Url]
+        .filter((photo): photo is string => photo !== null && photo !== undefined && photo !== '');
+
         if (photos.length === 0) return null;
+
+        // 파일명 추출 함수  
+        const extractFileName = (fullPath: string): string => {
+            if (!fullPath) return '';
+            // C:\uploads\파일명.jpg → 파일명.jpg
+            return fullPath.replace(/^.*[\\\/]/, '');
+        };
 
         return (
             <div className="diary-photos">
-                {photos.map((photo, index) => (
-                    <div key={index} className="photo-container">
-                        <img 
-                            src={`http://localhost:8090/${photo}`}
-                            alt={`여행 사진 ${index + 1}`}
-                            onError={(e) => {
-                                const target = e.target as HTMLImageElement;
-                                target.style.display = 'none';
-                            }}
-                        />
-                    </div>
-                ))}
+                {photos.map((photo, index) => {
+                    const filename = extractFileName(photo);
+                    const imageUrl = `http://localhost:8090/uploads/${filename}`;
+                    
+                    console.log('DB 경로:', photo);
+                    console.log('파일명:', filename);
+                    console.log('URL:', imageUrl);
+                    
+                    return (
+                        <div key={index} className="photo-container">
+                            <img 
+                                src={imageUrl}
+                                alt={`여행 사진 ${index + 1}`}
+                                className="diary-photo"
+                                onError={(e) => {
+                                    console.error('이미지 로드 실패:', imageUrl);
+                                }}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         );
     };
-
     const renderContent = () => {
         const contents = [diary?.content1, diary?.content2, diary?.content3].filter(Boolean);
         

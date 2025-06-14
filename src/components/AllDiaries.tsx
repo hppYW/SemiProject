@@ -53,6 +53,8 @@ const AllDiaries: React.FC = () => {
         navigate('/diary/create');
     };
 
+    
+
     const formatDate = (dateString: string) => {
         return new Date(dateString).toLocaleDateString('ko-KR', {
             year: 'numeric',

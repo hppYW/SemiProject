@@ -74,7 +74,7 @@ const Header: React.FC = () => {
                                     <span className="user-name">{user?.nickname}님</span>
                                 </div>
                                 <div className="dropdown-divider"></div>
-                                <div>
+                                <div className='my-diary'>
                                     <Link to="/diaries" className='my-diaries'>내 다이어리</Link>
                                 </div>
                                 <button 
